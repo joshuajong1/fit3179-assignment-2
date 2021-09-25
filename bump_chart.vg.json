@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Doses per 100 People in Selected Countries",
+        "color": "#156fa3",
+        "fontSize": 20,
+        "font": "Arial"
+    },
+    "data": {
+        "url": "data/10-countries-vaccine-per-capita.csv"
+    },
+    "params": [{
+        "name": "Top_n",
+        "value": 10,
+        "bind": {
+            "input": "range", "min": 1, "max": 10, "step": 1,
+            "name": "Number of countries: "
+        }
+    }],
+    "transform": [{
+        "filter": "datum.Rank <= Top_n"
+    }],
+    "mark": {
+        "type": "line",
+        "orient": "vertical",
+        "point": {
+            "shape": "circle",
+            "size": 50,
+            "opacity": 0.5
+        },
+        "interpolate": "natural",
+        "strokeWidth": 10,
+        "opacity": 0.5
+    },
+
+    "encoding": {
+        "y": {
+            "field": "Rank",
+            "type": "ordinal",
+            "sort": [1,2,3,4,5,6,7,8,9,10]
+        },
+        "x": {
+            "field": "Date",
+            "sort": [
+                "Jun",
+                "Jul",
+                "Aug"
+            ],
+            "axis": {
+                "labelAngle": -45
+            }
+        },
+        "color": {
+            "field": "ISO Country Code"
+        },
+        "tooltip": [
+            {"field": "Date"},
+            {"field": "Country"},
+            {"field": "ISO Country Code"},
+            {"field": "Doses per 100 people"}
+        ]
+    },
+    "config": {
+        "background": "#b3e9ff",
+        "axis": {
+            "titleColor": "#156fa3",
+            "labelColor": "#156fa3",
+            "labelFont": "sans-serif",
+            "labelFontSize": 15,
+            "titleFontSize": 15
+        },
+        "view": {
+            "stroke": "transparent"
+        },
+        "legend": {
+            "labelFontSize": 15,
+            "titleFontSize": 0,
+            "titleAlign": "left",
+            "orient": "none",
+            "legendX": 550,
+            "legendY": 20,
+            "labelColor": "#156fa3",
+            "titleColor": "#156fa3"
+        }
+    },
+    "width": 550,
+    "height": 350
+}
