@@ -4,7 +4,8 @@
         "text": "Doses per 100 People in Selected Countries",
         "color": "#156fa3",
         "fontSize": 20,
-        "font": "Arial"
+        "font": "Arial",
+        "offset": 30
     },
     "data": {
         "url": "data/10-countries-vaccine-per-capita.csv"
@@ -26,11 +27,11 @@
         "point": {
             "shape": "circle",
             "size": 50,
-            "opacity": 0.5
+            "opacity": 1
         },
         "interpolate": "natural",
-        "strokeWidth": 10,
-        "opacity": 0.5
+        "strokeWidth": 3,
+        "opacity": 1
     },
 
     "encoding": {
@@ -51,7 +52,12 @@
             }
         },
         "color": {
-            "field": "ISO Country Code"
+            "field": "ISO Country Code",
+            "scale": {
+                "range": ["#002fdb", "#b279a2", "#2ebac7", "#e65656", "#db00d0", "#9e745c",
+                "#b30059", "#53a14b", "#5700b3", "#edc941"
+                ]
+            }
         },
         "tooltip": [
             {"field": "Date"},
@@ -61,7 +67,7 @@
         ]
     },
     "config": {
-        "background": "#b3e9ff",
+        "background": "#a8c0ce",
         "axis": {
             "titleColor": "#156fa3",
             "labelColor": "#156fa3",
@@ -84,5 +90,5 @@
         }
     },
     "width": 550,
-    "height": 350
+    "height": 400
 }

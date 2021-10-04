@@ -44,5 +44,17 @@ vegaEmbed("#isotype-death", vg_9).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
+var vg_10 = "dot_cases.vg.json";
+vegaEmbed("#dot-cases", vg_10).then(function (result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+
+var vg_11 = "concat_bubble_line.vg.json";
+vegaEmbed("#bubble-line", vg_11).then(function (result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+
+
+
 vega.setRandom(vega.randomLCG1(2));
 
